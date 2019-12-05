@@ -1,0 +1,20 @@
+syntax = "proto3";
+package recognition;
+
+service RecognitionServer {
+    rpc GestureRecognition (stream GestureRecognitionRequest) returns (stream GestureRecognitionReply);
+}
+
+message GestureRecognitionRequest {
+    string ids = 1;
+    bytes data = 2;
+}
+
+message GestureRecognitionReply {
+    string ids = 1;
+    int64 errCode = 2;
+    string errMsg = 3;
+    int32 result = 4;
+}
+
+
