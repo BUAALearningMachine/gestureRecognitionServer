@@ -9,7 +9,7 @@ def serve():
     s = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     server.RecogninitonServer.RecognitionServer_pb2_grpc.add_RecognitionServerServicer_to_server(
         server.RecogninitonServer.RecognitionServicer(), s)
-    s.add_insecure_port('[::]:50051')
+    s.add_insecure_port('[::]:50052')
     s.start()
     print("Recognition Begin to Serve")
     s.wait_for_termination()
